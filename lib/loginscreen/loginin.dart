@@ -48,8 +48,9 @@ class _LoginscreenState extends State<Loginscreen> {
       setState(() {
         showLoading = false;
       });
-      _saffoldKey.currentState
-          ?.showSnackBar(SnackBar(content: Text(e.message!)));
+      print("Error");
+      // _saffoldKey.currentState
+      //     ?.showSnackBar(SnackBar(content: Text(e.message!)));
     }
   }
 
@@ -78,7 +79,7 @@ class _LoginscreenState extends State<Loginscreen> {
         SizedBox(
           height: 16,
         ),
-        FlatButton(
+        ElevatedButton(
           onPressed: () async {
             setState(() {
               showLoading = true;
@@ -94,8 +95,9 @@ class _LoginscreenState extends State<Loginscreen> {
                 setState(() {
                   showLoading = false;
                 });
-                _saffoldKey.currentState?.showSnackBar(
-                    SnackBar(content: Text(verificationFailed.message!)));
+                print("Error");
+                // _saffoldKey.currentState?.showSnackBar(
+                //     SnackBar(content: Text(verificationFailed.message!)));
               },
               codeSent: (verificationId, resendingToken) async {
                 setState(() {
@@ -109,9 +111,12 @@ class _LoginscreenState extends State<Loginscreen> {
           },
           child: Text(
             'SENT',
+            style: TextStyle(
+              color:   Colors.green.shade400,
+          // textColor: Colors.white,
+            ),
           ),
-          color: Colors.green.shade400,
-          textColor: Colors.white,
+         
         ),
         Spacer(),
       ],
@@ -139,7 +144,7 @@ class _LoginscreenState extends State<Loginscreen> {
           SizedBox(
             height: 16,
           ),
-          FlatButton(
+          ElevatedButton(
             onPressed: () async {
               PhoneAuthCredential phoneAuthCredential =
                   PhoneAuthProvider.credential(
@@ -149,9 +154,11 @@ class _LoginscreenState extends State<Loginscreen> {
               signInwithPhoneAuthCredential(
                   phoneAuthCredential); // use the phoneAuthCredential to signin into the application
             },
-            child: Text('VERIFY'),
-            color: Colors.green.shade400,
-            textColor: Colors.white,
+            child: Text('VERIFY', style: TextStyle(
+                color: Colors.green.shade400,
+            // textColor: Colors.white,
+            ),),
+          
           ),
           Spacer(),
         ],
